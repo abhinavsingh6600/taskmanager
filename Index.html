@@ -1,0 +1,2130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Work</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #07090f;
+        --bg2: #0f1320;
+        --bg3: #161d2e;
+        --bg4: #1e2740;
+        --border: #1e2740;
+        --border2: #2d3a56;
+        --text: #e8eaf6;
+        --text2: #8892b0;
+        --text3: #4a5568;
+        --indigo: #7c83fd;
+        --indigo-bg: #7c83fd18;
+        --cyan: #22d3ee;
+        --cyan-bg: #22d3ee15;
+        --green: #10b981;
+        --green-bg: #10b98115;
+        --amber: #f59e0b;
+        --amber-bg: #f59e0b15;
+        --red: #f43f5e;
+        --red-bg: #f43f5e15;
+        --purple: #a855f7;
+        --purple-bg: #a855f715;
+        --pink: #ec4899;
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        font-size: 14px;
+        overflow-x: hidden;
+      }
+
+      /* ── AUTH ── */
+      .auth-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background:
+          radial-gradient(ellipse at 30% 20%, #7cfd8212 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 80%, #ee222c0a 0%, transparent 50%),
+          var(--bg);
+      }
+      .auth-card {
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        padding: 2.5rem;
+        width: 460px;
+        box-shadow:
+          0 24px 80px #000e,
+          0 0 0 1px #7c83fd11;
+      }
+      .auth-logo {
+        font-size: 26px;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 0.3rem;
+        letter-spacing: -1px;
+      }
+      .auth-logo .w {
+        color: var(--indigo);
+      }
+      .auth-logo .o {
+        color: var(--cyan);
+      }
+      .auth-subtitle {
+        text-align: center;
+        color: var(--text3);
+        font-size: 12px;
+        margin-bottom: 2rem;
+        letter-spacing: 0.3px;
+      }
+      .auth-tabs {
+        display: flex;
+        background: var(--bg3);
+        border-radius: 10px;
+        padding: 3px;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border);
+      }
+      .auth-tab {
+        flex: 1;
+        text-align: center;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--text3);
+        font-size: 13px;
+        transition: 0.2s;
+        font-weight: 500;
+      }
+      .auth-tab.active {
+        background: var(--indigo);
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 2px 12px #7c83fd44;
+      }
+
+      /* ── APP LAYOUT ── */
+      .app {
+        display: flex;
+        min-height: 100vh;
+      }
+      .sidebar {
+        width: 240px;
+        background: var(--bg2);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+      .sidebar-logo {
+        padding: 1.25rem 1rem 1rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, var(--indigo), var(--cyan));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .logo-text {
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+      }
+      .logo-text .w {
+        color: var(--indigo);
+      }
+      .logo-text .o {
+        color: var(--cyan);
+      }
+      .nav-section {
+        padding: 0.75rem 1rem 0.2rem;
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        font-weight: 700;
+      }
+      .nav-item {
+        padding: 9px 1rem;
+        cursor: pointer;
+        color: var(--text2);
+        transition: 0.2s;
+        border-radius: 8px;
+        margin: 1px 8px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .nav-item.active {
+        color: #fff;
+        background: var(--indigo);
+        box-shadow: 0 2px 12px #7c83fd33;
+      }
+      .nav-item:hover:not(.active) {
+        background: var(--bg3);
+        color: var(--text);
+      }
+      .main {
+        flex: 1;
+        overflow: auto;
+        background: var(--bg);
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 2rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg2);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        gap: 12px;
+      }
+      .topbar-title {
+        font-size: 16px;
+        font-weight: 700;
+        flex: 1;
+        letter-spacing: -0.3px;
+      }
+      .page-content {
+        padding: 2rem;
+      }
+
+      /* ── BUTTONS ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 9px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.2s;
+        letter-spacing: 0.1px;
+      }
+      .btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--indigo), #5b67fa);
+        color: #fff;
+        box-shadow: 0 2px 12px #7c83fd33;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--text2);
+        border: 1px solid var(--border2);
+      }
+      .btn-ghost:hover {
+        background: var(--bg3);
+        color: var(--text);
+        border-color: var(--border2);
+      }
+      .btn-danger {
+        background: var(--red-bg);
+        color: var(--red);
+        border: 1px solid #f43f5e33;
+      }
+      .btn-success {
+        background: var(--green-bg);
+        color: var(--green);
+        border: 1px solid #10b98133;
+      }
+      .btn-cyan {
+        background: var(--cyan-bg);
+        color: var(--cyan);
+        border: 1px solid #22d3ee33;
+      }
+      .btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+      .btn-icon {
+        padding: 6px;
+        border-radius: 6px;
+        background: none;
+        border: 1px solid var(--border2);
+        cursor: pointer;
+        color: var(--text2);
+        transition: 0.2s;
+      }
+      .btn-icon:hover {
+        background: var(--bg3);
+        color: var(--text);
+      }
+
+      /* ── FORMS ── */
+      .form-group {
+        margin-bottom: 1.1rem;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        color: var(--text2);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: var(--bg3);
+        border: 1px solid var(--border2);
+        border-radius: 8px;
+        padding: 10px 12px;
+        color: var(--text);
+        outline: none;
+        font-size: 13px;
+        transition: 0.2s;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--indigo);
+        box-shadow: 0 0 0 3px #7c83fd1a;
+      }
+      .form-group select option {
+        background: var(--bg3);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      /* ── MODAL ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.88);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 1rem;
+        backdrop-filter: blur(4px);
+      }
+      .modal {
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        width: 520px;
+        max-width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 2rem;
+        box-shadow: 0 24px 80px #000c;
+      }
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+      }
+      .modal-title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      /* ── BADGES ── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 9px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+      .badge-admin {
+        background: var(--purple-bg);
+        color: var(--purple);
+      }
+      .badge-member {
+        background: var(--indigo-bg);
+        color: var(--indigo);
+      }
+      .badge-todo {
+        background: var(--bg4);
+        color: var(--text2);
+      }
+      .badge-progress {
+        background: var(--amber-bg);
+        color: var(--amber);
+      }
+      .badge-done {
+        background: var(--green-bg);
+        color: var(--green);
+      }
+      .badge-high {
+        background: #f43f5e18;
+        color: #f43f5e;
+      }
+      .badge-medium {
+        background: #f59e0b18;
+        color: #f59e0b;
+      }
+      .badge-low {
+        background: #10b98118;
+        color: #10b981;
+      }
+
+      /* ── STAT CARDS ── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .stat-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+      .stat-card.c-indigo::before {
+        background: linear-gradient(90deg, var(--indigo), var(--cyan));
+      }
+      .stat-card.c-amber::before {
+        background: var(--amber);
+      }
+      .stat-card.c-green::before {
+        background: var(--green);
+      }
+      .stat-card.c-red::before {
+        background: var(--red);
+      }
+      .stat-card.c-cyan::before {
+        background: var(--cyan);
+      }
+      .stat-label {
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        font-weight: 700;
+      }
+      .stat-value {
+        font-size: 28px;
+        font-weight: 800;
+        margin-top: 6px;
+      }
+
+      /* ── PROJECT CARDS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem;
+      }
+      .project-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px #00000066;
+      }
+      .progress-bar {
+        height: 4px;
+        background: var(--bg4);
+        border-radius: 2px;
+        margin: 0.75rem 0 0.3rem;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--indigo), var(--cyan));
+        transition: width 0.4s;
+      }
+
+      /* ── KANBAN ── */
+      .kanban {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .kanban-col {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+        min-height: 200px;
+      }
+      .kanban-col-header {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text2);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .kanban-count {
+        background: var(--bg4);
+        border-radius: 10px;
+        padding: 1px 8px;
+        font-size: 11px;
+        color: var(--text3);
+      }
+      .task-mini {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 0.75rem;
+        margin-bottom: 0.6rem;
+        transition: 0.2s;
+      }
+      .task-mini:hover {
+        border-color: var(--border2);
+      }
+      .task-mini-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+      .task-mini-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      /* ── TASK PROGRESS ── */
+      .progress-slider {
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--bg4);
+        outline: none;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        margin-top: 4px;
+      }
+      .progress-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--indigo);
+        cursor: pointer;
+        border: 2px solid var(--bg2);
+        box-shadow: 0 0 6px #7c83fd66;
+      }
+      .progress-slider::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--indigo);
+        cursor: pointer;
+        border: 2px solid var(--bg2);
+      }
+      .tp-bar-wrap {
+        width: 80px;
+        height: 5px;
+        background: var(--bg4);
+        border-radius: 3px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .tp-bar-fill {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.3s;
+      }
+
+      /* ── TABLES ── */
+      .task-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--bg2);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .task-table th {
+        padding: 0.9rem 1.25rem;
+        background: var(--bg3);
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+      .task-table td {
+        padding: 0.85rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        vertical-align: middle;
+      }
+      .task-table tr:last-child td {
+        border-bottom: none;
+      }
+      .task-table tr:hover td {
+        background: var(--bg3);
+      }
+      .team-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .team-table th {
+        padding: 0.9rem 1.25rem;
+        background: var(--bg3);
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-align: left;
+      }
+      .team-table td {
+        padding: 0.85rem 1.25rem;
+        border-top: 1px solid var(--border);
+        font-size: 13px;
+        vertical-align: middle;
+      }
+      .team-table tr:hover td {
+        background: var(--bg3);
+      }
+
+      /* ── AVATAR ── */
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* ── ALERT ── */
+      .alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        border-radius: 10px;
+        z-index: 3000;
+        font-size: 13px;
+        font-weight: 600;
+        animation: slideIn 0.3s ease;
+        max-width: 340px;
+        backdrop-filter: blur(8px);
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(110%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* ── MISC ── */
+      .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--bg2);
+        border: 2px dashed var(--border2);
+        border-radius: 16px;
+        color: var(--text3);
+      }
+      .empty-state h3 {
+        margin-bottom: 0.5rem;
+        color: var(--text2);
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+      }
+      .section-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .settings-section {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .settings-section h3 {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        color: var(--text);
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .danger-zone {
+        border-color: #f43f5e33 !important;
+      }
+      .danger-zone h3 {
+        color: var(--red) !important;
+      }
+      .tag {
+        display: inline-flex;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .scroll-x {
+        overflow-x: auto;
+      }
+      .member-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 0.5rem;
+      }
+      .member-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--bg3);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        padding: 4px 10px 4px 6px;
+        font-size: 12px;
+      }
+      .member-pill .remove-pill {
+        cursor: pointer;
+        color: var(--red);
+        font-size: 14px;
+        line-height: 1;
+      }
+      .input-with-btn {
+        display: flex;
+        gap: 8px;
+      }
+      .progress-text {
+        font-size: 12px;
+        color: var(--text3);
+      }
+      .glow-indigo {
+        box-shadow: 0 0 20px #7c83fd22;
+      }
+
+      /* SECURITY CODE INPUT */
+      .code-inputs {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 0.75rem 0;
+      }
+      .code-inputs input {
+        width: 46px;
+        height: 52px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        background: var(--bg3);
+        border: 2px solid var(--border2);
+        border-radius: 10px;
+        color: var(--text);
+        outline: none;
+        transition: 0.2s;
+      }
+      .code-inputs input:focus {
+        border-color: var(--indigo);
+        box-shadow: 0 0 0 3px #7c83fd22;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // ══════════════════════════════════════════════
+      //  STATE
+      // ══════════════════════════════════════════════
+      function load(k, d) {
+        try {
+          return JSON.parse(localStorage.getItem(k)) || d;
+        } catch (e) {
+          return d;
+        }
+      }
+
+      function fixIds(arr) {
+        if (!Array.isArray(arr)) return arr;
+        return arr.map((item) => {
+          const o = { ...item };
+          if (o.id !== undefined) o.id = String(o.id);
+          if (o.createdBy !== undefined) o.createdBy = String(o.createdBy);
+          if (o.assignee != null) o.assignee = String(o.assignee);
+          if (Array.isArray(o.members)) o.members = o.members.map(String);
+          if (o.progress === undefined && o.status !== undefined)
+            o.progress = o.status === "done" ? 100 : 0;
+          return o;
+        });
+      }
+
+      const DEFAULT_USERS = [
+        {
+          id: "1",
+          name: "Farhan Khalid",
+          email: "admin@workorbit.com",
+          password: "Admin@123",
+          role: "admin",
+          color: "#7c83fd",
+          securityAnswer: "workorbit",
+        },
+      ];
+
+      let S = {
+        users: fixIds(load("wo_users", DEFAULT_USERS)),
+        projects: fixIds(load("wo_projects", [])),
+        tasks: fixIds(load("wo_tasks", [])),
+        currentUser: null,
+        view: "dashboard",
+        subView: null,
+        authMode: "login", // 'login' | 'signup' | 'forgot' | 'verify' | 'reset'
+        modal: null,
+        modalData: {},
+        pendingMembers: [],
+        resetEmail: "", // email being reset
+        resetCode: "", // 6-digit code sent
+      };
+
+      function save() {
+        localStorage.setItem("wo_users", JSON.stringify(S.users));
+        localStorage.setItem("wo_projects", JSON.stringify(S.projects));
+        localStorage.setItem("wo_tasks", JSON.stringify(S.tasks));
+      }
+
+      // ══════════════════════════════════════════════
+      //  HELPERS
+      // ══════════════════════════════════════════════
+      const isAdmin = () => S.currentUser?.role === "admin";
+      const uid = () =>
+        String(Date.now()) + Math.random().toString(36).slice(2, 6);
+      const colors = [
+        "#7c83fd",
+        "#10b981",
+        "#f59e0b",
+        "#a855f7",
+        "#f43f5e",
+        "#22d3ee",
+        "#ec4899",
+        "#6366f1",
+      ];
+      const initials = (name) =>
+        name
+          .split(" ")
+          .map((w) => w[0])
+          .join("")
+          .toUpperCase()
+          .slice(0, 2);
+      const tasksDone = (pid) =>
+        S.tasks.filter((t) => t.projectId === pid && t.status === "done")
+          .length;
+      const tasksTotal = (pid) =>
+        S.tasks.filter((t) => t.projectId === pid).length;
+      const projProgress = (pid) => {
+        const tot = tasksTotal(pid);
+        return tot === 0 ? 0 : Math.round((tasksDone(pid) / tot) * 100);
+      };
+
+      function progressColor(pct) {
+        if (pct >= 100) return "var(--green)";
+        if (pct >= 60) return "var(--indigo)";
+        if (pct >= 30) return "var(--amber)";
+        return "var(--red)";
+      }
+      function validateEmail(e) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+      }
+      function validatePassword(p) {
+        return /^[A-Z](?=.*[0-9])(?=.*[!@#$%^&*])(?=.{7,})/.test(p);
+      }
+
+      // Generate a random 6-digit code (simulated — shown in alert since no real email server)
+      function genCode() {
+        return String(Math.floor(100000 + Math.random() * 900000));
+      }
+
+      // ══════════════════════════════════════════════
+      //  AUTH
+      // ══════════════════════════════════════════════
+      function handleAuth() {
+        const email = v("a-email").trim().toLowerCase();
+        const pass = v("a-pass");
+
+        if (S.authMode === "signup") {
+          const name = v("a-name").trim();
+          const role = v("a-role");
+          const conf = v("a-confirm");
+          const secQ = v("a-secq").trim().toLowerCase();
+          if (!name || !email || !pass || !conf || !secQ)
+            return alert2("Please fill all fields", "red");
+          if (!validateEmail(email))
+            return alert2("Invalid email format", "red");
+          if (S.users.find((u) => u.email === email))
+            return alert2("Email already registered", "red");
+          if (!validatePassword(pass))
+            return alert2(
+              "Password: Capital first + number + special char (min 8)",
+              "red",
+            );
+          if (pass !== conf) return alert2("Passwords do not match", "red");
+          const col = colors[S.users.length % colors.length];
+          S.users.push({
+            id: uid(),
+            name,
+            email,
+            password: pass,
+            role,
+            color: col,
+            securityAnswer: secQ,
+          });
+          save();
+          alert2("Account created! Please log in.", "green");
+          S.authMode = "login";
+          return render();
+        }
+
+        const user = S.users.find(
+          (u) => u.email === email && u.password === pass,
+        );
+        if (!user) return alert2("Wrong email or password", "red");
+        S.currentUser = { ...user, id: String(user.id) };
+        S.view = "dashboard";
+        alert2(`Welcome back, ${user.name}!`, "green");
+        render();
+      }
+
+      function logout() {
+        S.currentUser = null;
+        S.authMode = "login";
+        render();
+      }
+
+      // ── FORGOT PASSWORD FLOW ──
+      function startForgot() {
+        S.authMode = "forgot";
+        render();
+      }
+
+      function sendResetCode() {
+        const email = v("fp-email").trim().toLowerCase();
+        if (!email) return alert2("Enter your email", "red");
+        const user = S.users.find((u) => u.email === email);
+        if (!user) return alert2("No account found with this email", "red");
+        S.resetEmail = email;
+        // Simulate sending — in production this would be an API call
+        const code = genCode();
+        S.resetCode = code;
+        // Store temporarily on the user object (in-memory only)
+        S._tempCode = code;
+        S.authMode = "verify";
+        render();
+        // Show code in a special alert (simulates email delivery)
+        setTimeout(() => {
+          alert2(`📧 Reset code sent! (Demo: your code is ${code})`, "green");
+        }, 300);
+      }
+
+      function verifyCode() {
+        const entered = [
+          v("c1"),
+          v("c2"),
+          v("c3"),
+          v("c4"),
+          v("c5"),
+          v("c6"),
+        ].join("");
+        if (entered.length < 6) return alert2("Enter all 6 digits", "red");
+        if (entered !== S.resetCode)
+          return alert2("Wrong code. Try again.", "red");
+        S.authMode = "reset";
+        render();
+        alert2("Code verified! Set your new password.", "green");
+      }
+
+      function submitReset() {
+        const answer = v("fp-answer").trim().toLowerCase();
+        const newPass = v("fp-newpass");
+        const confPass = v("fp-confirm");
+        if (!answer || !newPass || !confPass)
+          return alert2("Fill all fields", "red");
+        const user = S.users.find((u) => u.email === S.resetEmail);
+        if (!user) return alert2("User not found", "red");
+        // Verify security answer
+        if ((user.securityAnswer || "").toLowerCase() !== answer)
+          return alert2("Security answer incorrect", "red");
+        if (!validatePassword(newPass))
+          return alert2(
+            "Password: Capital first + number + special char (min 8)",
+            "red",
+          );
+        if (newPass !== confPass)
+          return alert2("Passwords do not match", "red");
+        user.password = newPass;
+        save();
+        S.authMode = "login";
+        S.resetEmail = "";
+        S.resetCode = "";
+        alert2("Password reset successfully! Please log in.", "green");
+        render();
+      }
+
+      function codeInputNav(el, index) {
+        // Auto-advance on digit entry
+        if (el.value.length === 1 && index < 6) {
+          const next = document.getElementById("c" + (index + 1));
+          if (next) next.focus();
+        }
+      }
+
+      // ══════════════════════════════════════════════
+      //  PROJECTS
+      // ══════════════════════════════════════════════
+      function saveProject() {
+        const name = v("p-title").trim();
+        const desc = v("p-desc").trim();
+        if (!name) return alert2("Project title required", "red");
+
+        const membersWithSelf = S.pendingMembers
+          .map(String)
+          .includes(String(S.currentUser.id))
+          ? S.pendingMembers.map(String)
+          : [String(S.currentUser.id), ...S.pendingMembers.map(String)];
+
+        if (S.modal === "edit-project") {
+          const p = S.projects.find((x) => x.id === S.modalData.id);
+          if (p) {
+            p.name = name;
+            p.desc = desc;
+            const creatorId = String(p.createdBy || S.currentUser.id);
+            p.members = membersWithSelf.includes(creatorId)
+              ? membersWithSelf
+              : [creatorId, ...membersWithSelf];
+          }
+          save();
+          closeModal();
+          alert2("Project updated", "green");
+          render();
+          return;
+        }
+        S.projects.push({
+          id: uid(),
+          name,
+          desc,
+          members: membersWithSelf,
+          createdBy: String(S.currentUser.id),
+          createdAt: new Date().toISOString(),
+        });
+        save();
+        closeModal();
+        alert2("Project created", "green");
+        render();
+      }
+
+      function deleteProject(id) {
+        if (!confirm("Delete this project and all its tasks?")) return;
+        S.projects = S.projects.filter((p) => p.id !== id);
+        S.tasks = S.tasks.filter((t) => t.projectId !== id);
+        save();
+        alert2("Project deleted", "green");
+        if (S.subView === id) {
+          S.subView = null;
+          S.view = "projects";
+        }
+        render();
+      }
+
+      function visibleProjects() {
+        if (isAdmin()) return S.projects;
+        const uid = String(S.currentUser.id);
+        return S.projects.filter((p) => p.members.map(String).includes(uid));
+      }
+
+      // ══════════════════════════════════════════════
+      //  TASKS
+      // ══════════════════════════════════════════════
+      function saveTask() {
+        const title = v("t-title").trim();
+        const desc = v("t-desc").trim();
+        const assignee = v("t-assignee");
+        const priority = v("t-priority");
+        const due = v("t-due");
+        const projectId = v("t-project");
+        if (!title) return alert2("Task title required", "red");
+        if (!projectId) return alert2("Select a project", "red");
+
+        if (S.modal === "edit-task") {
+          const t = S.tasks.find((x) => x.id === S.modalData.id);
+          if (t)
+            Object.assign(t, {
+              title,
+              desc,
+              assignee: assignee ? String(assignee) : null,
+              priority,
+              due: due || null,
+              projectId: String(projectId),
+            });
+          save();
+          closeModal();
+          alert2("Task updated", "green");
+          render();
+          return;
+        }
+        S.tasks.push({
+          id: uid(),
+          title,
+          desc,
+          assignee: assignee ? String(assignee) : null,
+          priority,
+          status: "todo",
+          progress: 0,
+          due: due || null,
+          projectId: String(projectId),
+          createdBy: String(S.currentUser.id),
+          createdAt: new Date().toISOString(),
+        });
+        save();
+        closeModal();
+        alert2("Task created", "green");
+        render();
+      }
+
+      function updateTaskStatus(id, status) {
+        const t = S.tasks.find((x) => x.id === id);
+        if (t) {
+          t.status = status;
+          if (status === "done" && t.progress < 100) t.progress = 100;
+          if (status === "todo" && t.progress === 100) t.progress = 0;
+          save();
+          render();
+        }
+      }
+
+      function updateTaskProgress(id, pct) {
+        const t = S.tasks.find((x) => x.id === id);
+        if (!t) return;
+        t.progress = parseInt(pct, 10);
+        if (t.progress === 100) t.status = "done";
+        else if (t.progress > 0) t.status = "in-progress";
+        else t.status = "todo";
+        save();
+        const lbl = document.getElementById("pct-label-" + id);
+        if (lbl) {
+          lbl.textContent = t.progress + "%";
+          lbl.style.color = progressColor(t.progress);
+        }
+        const bar = document.getElementById("pct-bar-" + id);
+        if (bar) {
+          bar.style.width = t.progress + "%";
+          bar.style.background = progressColor(t.progress);
+        }
+      }
+
+      function deleteTask(id) {
+        if (!confirm("Delete this task?")) return;
+        S.tasks = S.tasks.filter((t) => t.id !== id);
+        save();
+        alert2("Task deleted", "green");
+        render();
+      }
+
+      function canEditTask(task) {
+        if (isAdmin()) return true;
+        const uid = String(S.currentUser.id);
+        const proj = S.projects.find(
+          (p) => String(p.id) === String(task.projectId),
+        );
+        return !!(proj && proj.members.map(String).includes(uid));
+      }
+
+      function canCreateTaskInProject(projectId) {
+        if (isAdmin()) return true;
+        const uid = String(S.currentUser.id);
+        const proj = S.projects.find((p) => String(p.id) === String(projectId));
+        return !!(proj && proj.members.map(String).includes(uid));
+      }
+
+      // ══════════════════════════════════════════════
+      //  TEAM
+      // ══════════════════════════════════════════════
+      function removeUser(id) {
+        const sid = String(id);
+        if (sid === String(S.currentUser.id))
+          return alert2("You can't remove yourself", "red");
+        if (!confirm("Remove this member from WorkOrbit?")) return;
+        S.users = S.users.filter((u) => String(u.id) !== sid);
+        S.projects.forEach((p) => {
+          p.members = p.members.filter((m) => String(m) !== sid);
+        });
+        save();
+        alert2("Member removed", "green");
+        render();
+      }
+
+      function changeRole(id) {
+        const sid = String(id);
+        const u = S.users.find((x) => String(x.id) === sid);
+        if (!u) return;
+        if (sid === String(S.currentUser.id))
+          return alert2("Can't change your own role", "red");
+        u.role = u.role === "admin" ? "member" : "admin";
+        save();
+        alert2(`Role changed to ${u.role}`, "green");
+        render();
+      }
+
+      function savePassword() {
+        const cur = v("pw-current"),
+          next = v("pw-new"),
+          conf = v("pw-confirm");
+        if (!cur || !next || !conf)
+          return alert2("Fill all password fields", "red");
+        if (S.currentUser.password !== cur)
+          return alert2("Current password incorrect", "red");
+        if (!validatePassword(next))
+          return alert2(
+            "Password: Capital first + number + special char (min 8)",
+            "red",
+          );
+        if (next !== conf) return alert2("Passwords do not match", "red");
+        S.currentUser.password = next;
+        const u = S.users.find(
+          (x) => String(x.id) === String(S.currentUser.id),
+        );
+        if (u) u.password = next;
+        save();
+        alert2("Password updated successfully", "green");
+        render();
+      }
+
+      function saveProfile() {
+        const name = v("prof-name").trim();
+        const email = v("prof-email").trim().toLowerCase();
+        if (!name || !email) return alert2("Fill all fields", "red");
+        if (!validateEmail(email)) return alert2("Invalid email", "red");
+        if (
+          email !== S.currentUser.email &&
+          S.users.find((u) => u.email === email)
+        )
+          return alert2("Email already taken", "red");
+        const u = S.users.find(
+          (x) => String(x.id) === String(S.currentUser.id),
+        );
+        if (u) {
+          u.name = name;
+          u.email = email;
+        }
+        S.currentUser.name = name;
+        S.currentUser.email = email;
+        save();
+        alert2("Profile updated", "green");
+        render();
+      }
+
+      // ══════════════════════════════════════════════
+      //  PENDING MEMBERS
+      // ══════════════════════════════════════════════
+      function addPendingMember() {
+        const sel = document.getElementById("pm-select");
+        if (!sel) return;
+        const id = sel.value;
+        if (!id) return;
+        if (S.pendingMembers.includes(id))
+          return alert2("Already added", "red");
+        S.pendingMembers.push(id);
+        rerenderPills();
+      }
+      function removePendingMember(id) {
+        S.pendingMembers = S.pendingMembers.filter((x) => x !== id);
+        rerenderPills();
+      }
+      function rerenderPills() {
+        const el = document.getElementById("pm-pills");
+        if (el) el.innerHTML = pillsHTML();
+      }
+      function pillsHTML() {
+        if (!S.pendingMembers.length)
+          return '<span style="color:var(--text3);font-size:12px">No members added yet</span>';
+        return S.pendingMembers
+          .map((id) => {
+            const u = S.users.find((x) => x.id === id);
+            if (!u) return "";
+            return `<span class="member-pill">
+      <span class="avatar" style="width:20px;height:20px;font-size:9px;background:${u.color}22;color:${u.color}">${initials(u.name)}</span>
+      ${u.name}
+      <span class="remove-pill" onclick="removePendingMember('${id}')">×</span>
+    </span>`;
+          })
+          .join("");
+      }
+
+      // ══════════════════════════════════════════════
+      //  MODALS
+      // ══════════════════════════════════════════════
+      function openModal(type, data = {}) {
+        S.modal = type;
+        S.modalData = data;
+        if (type === "new-project" || type === "edit-project") {
+          S.pendingMembers =
+            type === "edit-project"
+              ? S.projects
+                  .find((p) => p.id === data.id)
+                  ?.members?.filter(
+                    (m) => String(m) !== String(S.currentUser.id),
+                  ) || []
+              : [];
+        }
+        render();
+      }
+      function closeModal() {
+        S.modal = null;
+        S.modalData = {};
+        S.pendingMembers = [];
+        render();
+      }
+
+      // ══════════════════════════════════════════════
+      //  RENDER ENGINE
+      // ══════════════════════════════════════════════
+      function v(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : "";
+      }
+
+      function render() {
+        document.getElementById("root").innerHTML = S.currentUser
+          ? renderApp()
+          : renderAuthScreen();
+        if (S.modal)
+          document
+            .getElementById("root")
+            .insertAdjacentHTML("beforeend", renderModal());
+      }
+
+      // ── AUTH SCREEN ──
+      function renderAuthScreen() {
+        const mode = S.authMode;
+
+        if (mode === "forgot") return renderForgotStep1();
+        if (mode === "verify") return renderForgotStep2();
+        if (mode === "reset") return renderForgotStep3();
+
+        const isSU = mode === "signup";
+        return `<div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span class="w">Work</span><span class="o">Orbit</span></div>
+      <div class="auth-subtitle">TEAM TASK MANAGEMENT PLATFORM</div>
+      <div class="auth-tabs">
+        <div class="auth-tab ${!isSU ? "active" : ""}" onclick="S.authMode='login';render()">Sign In</div>
+        <div class="auth-tab ${isSU ? "active" : ""}" onclick="S.authMode='signup';render()">Sign Up</div>
+      </div>
+      ${
+        isSU
+          ? `
+        <div class="form-group"><label>Full Name</label><input id="a-name" placeholder="Your full name" autocomplete="name"/></div>
+        <div class="form-group"><label>Role</label>
+          <select id="a-role">
+            <option value="member">Member</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>`
+          : ""
+      }
+      <div class="form-group"><label>Email Address</label><input id="a-email" type="email" placeholder="you@example.com"/></div>
+      <div class="form-group"><label>Password</label><input id="a-pass" type="password" placeholder="Capital + number + special char"/></div>
+      ${
+        isSU
+          ? `
+        <div class="form-group"><label>Confirm Password</label><input id="a-confirm" type="password" placeholder="Re-enter password"/></div>
+        <div class="form-group">
+          <label>Security Answer <span style="font-weight:400;text-transform:none;color:var(--text3)">(used to reset password)</span></label>
+          <input id="a-secq" placeholder="e.g. your first pet's name or hometown"/>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">Remember this answer — you'll need it to reset your password.</div>
+        </div>`
+          : ""
+      }
+      ${
+        !isSU
+          ? `<div style="text-align:right;margin-bottom:1rem">
+        <a onclick="startForgot()" style="font-size:12px;color:var(--indigo);cursor:pointer;text-decoration:none">Forgot password?</a>
+      </div>`
+          : ""
+      }
+      <button class="btn btn-primary" style="width:100%;padding:12px" onclick="handleAuth()">${isSU ? "Create Account" : "Sign In"}</button>
+    </div>
+  </div>`;
+      }
+
+      function renderForgotStep1() {
+        return `<div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span class="w">Work</span><span class="o">Orbit</span></div>
+      <div class="auth-subtitle" style="margin-bottom:1rem">RESET YOUR PASSWORD</div>
+      <div style="background:var(--indigo-bg);border:1px solid #7c83fd33;border-radius:10px;padding:1rem;margin-bottom:1.5rem;font-size:13px;color:var(--text2);line-height:1.6">
+        Enter your registered email. We'll send a 6-digit verification code.
+      </div>
+      <div class="form-group"><label>Email Address</label><input id="fp-email" type="email" placeholder="your@email.com"/></div>
+      <button class="btn btn-primary" style="width:100%;padding:12px;margin-bottom:.75rem" onclick="sendResetCode()">Send Reset Code</button>
+      <button class="btn btn-ghost" style="width:100%" onclick="S.authMode='login';render()">← Back to Login</button>
+    </div>
+  </div>`;
+      }
+
+      function renderForgotStep2() {
+        return `<div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span class="w">Work</span><span class="o">Orbit</span></div>
+      <div class="auth-subtitle" style="margin-bottom:1rem">ENTER VERIFICATION CODE</div>
+      <div style="background:var(--cyan-bg);border:1px solid #22d3ee33;border-radius:10px;padding:1rem;margin-bottom:1.5rem;font-size:13px;color:var(--text2);line-height:1.6">
+        A 6-digit code was sent to <b style="color:var(--text)">${S.resetEmail}</b>.<br/>
+        <span style="color:var(--text3);font-size:11px">(Demo mode: code shown in the green notification above)</span>
+      </div>
+      <div class="code-inputs">
+        <input id="c1" maxlength="1" oninput="codeInputNav(this,1)" onkeyup="if(event.key==='Backspace'&&!this.value){}"/>
+        <input id="c2" maxlength="1" oninput="codeInputNav(this,2)" onkeyup="if(event.key==='Backspace'&&!this.value)document.getElementById('c1').focus()"/>
+        <input id="c3" maxlength="1" oninput="codeInputNav(this,3)" onkeyup="if(event.key==='Backspace'&&!this.value)document.getElementById('c2').focus()"/>
+        <input id="c4" maxlength="1" oninput="codeInputNav(this,4)" onkeyup="if(event.key==='Backspace'&&!this.value)document.getElementById('c3').focus()"/>
+        <input id="c5" maxlength="1" oninput="codeInputNav(this,5)" onkeyup="if(event.key==='Backspace'&&!this.value)document.getElementById('c4').focus()"/>
+        <input id="c6" maxlength="1" oninput="codeInputNav(this,6)" onkeyup="if(event.key==='Backspace'&&!this.value)document.getElementById('c5').focus()"/>
+      </div>
+      <button class="btn btn-primary" style="width:100%;padding:12px;margin-bottom:.75rem" onclick="verifyCode()">Verify Code</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost" style="flex:1" onclick="S.authMode='forgot';render()">← Back</button>
+        <button class="btn btn-ghost" style="flex:1" onclick="sendResetCode()">Resend Code</button>
+      </div>
+    </div>
+  </div>`;
+      }
+
+      function renderForgotStep3() {
+        return `<div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span class="w">Work</span><span class="o">Orbit</span></div>
+      <div class="auth-subtitle" style="margin-bottom:1.25rem">SET NEW PASSWORD</div>
+      <div class="form-group">
+        <label>Security Answer <span style="font-weight:400;text-transform:none;color:var(--text3)">(verify identity)</span></label>
+        <input id="fp-answer" placeholder="Your security answer"/>
+      </div>
+      <div class="form-group"><label>New Password</label><input id="fp-newpass" type="password" placeholder="Capital + number + special char"/></div>
+      <div class="form-group"><label>Confirm New Password</label><input id="fp-confirm" type="password" placeholder="Re-enter new password"/></div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:1rem">Password rules: Start with Capital, include a number &amp; special char (!@#$%^&amp;*), min 8 chars.</div>
+      <button class="btn btn-primary" style="width:100%;padding:12px" onclick="submitReset()">Reset Password</button>
+    </div>
+  </div>`;
+      }
+
+      // ── APP SHELL ──
+      function renderApp() {
+        const u = S.currentUser;
+        return `
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">🪐</div>
+        <div class="logo-text"><span class="w">Work</span><span class="o">Orbit</span></div>
+      </div>
+      <nav style="flex:1;padding:.75rem 0;overflow-y:auto">
+        <div class="nav-section">Main</div>
+        <div class="nav-item ${S.view === "dashboard" ? "active" : ""}" onclick="goView('dashboard')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h6v6H1zm8 0h6v6H9zM1 9h6v6H1zm8 0h6v6H9z"/></svg>Dashboard
+        </div>
+        <div class="nav-item ${S.view === "projects" || S.view === "project-detail" ? "active" : ""}" onclick="goView('projects')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="11" rx="1.5"/><path d="M5 3V2a1 1 0 011-1h4a1 1 0 011 1v1"/></svg>Projects
+        </div>
+        <div class="nav-item ${S.view === "my-tasks" ? "active" : ""}" onclick="goView('my-tasks')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h5"/></svg>My Tasks
+        </div>
+        <div class="nav-section">Manage</div>
+        ${
+          isAdmin()
+            ? `
+        <div class="nav-item ${S.view === "team" ? "active" : ""}" onclick="goView('team')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="2.5"/><path d="M1 13c0-2.76 2.24-5 5-5s5 2.24 5 5"/><circle cx="12" cy="5" r="2"/><path d="M14 13c0-2.21-1.79-4-4-4"/></svg>Team
+        </div>`
+            : ""
+        }
+        <div class="nav-item ${S.view === "settings" ? "active" : ""}" onclick="goView('settings')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.93 2.93l1.41 1.41M11.66 11.66l1.41 1.41M2.93 13.07l1.41-1.41M11.66 4.34l1.41-1.41"/></svg>Settings
+        </div>
+      </nav>
+      <div style="padding:1rem;border-top:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div class="avatar" style="background:${u.color}22;color:${u.color};border:1px solid ${u.color}44">${initials(u.name)}</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${u.name}</div>
+            <div style="font-size:10px;color:var(--text3);letter-spacing:.4px">${u.role.toUpperCase()}</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost" style="width:100%;font-size:12px" onclick="logout()">Sign Out</button>
+      </div>
+    </aside>
+    <main class="main">
+      ${renderTopbar()}
+      <div class="page-content">${renderView()}</div>
+    </main>
+  </div>`;
+      }
+
+      function renderTopbar() {
+        const titles = {
+          dashboard: "Dashboard",
+          projects: "Projects",
+          "my-tasks": "My Tasks",
+          team: "Team Management",
+          settings: "Settings",
+          "project-detail": "Project Detail",
+        };
+        const title = titles[S.view] || S.view;
+        let actions = "";
+        if (S.view === "projects" && isAdmin())
+          actions = `<button class="btn btn-primary" onclick="openModal('new-project')">+ New Project</button>`;
+        if (S.view === "project-detail") {
+          const p = S.projects.find((x) => x.id === S.subView);
+          if (p)
+            actions = `
+      ${canCreateTaskInProject(p.id) ? `<button class="btn btn-primary btn-sm" onclick="openModal('new-task',{projectId:'${p.id}'})">+ Add Task</button>` : ""}
+      ${
+        isAdmin()
+          ? `<button class="btn btn-ghost btn-sm" onclick="openModal('edit-project',{id:'${p.id}'})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteProject('${p.id}')">Delete</button>`
+          : ""
+      }
+      <button class="btn btn-ghost btn-sm" onclick="goView('projects')">← Back</button>`;
+        }
+        return `<div class="topbar">
+    <div class="topbar-title">${title}${S.view === "project-detail" ? ` <span style="color:var(--text3);font-weight:400;font-size:13px">/ ${S.projects.find((x) => x.id === S.subView)?.name || ""}</span>` : ""}
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">${actions}</div>
+  </div>`;
+      }
+
+      function renderView() {
+        if (S.view === "dashboard") return renderDashboard();
+        if (S.view === "projects") return renderProjects();
+        if (S.view === "project-detail") return renderProjectDetail();
+        if (S.view === "my-tasks") return renderMyTasks();
+        if (S.view === "team") return renderTeam();
+        if (S.view === "settings") return renderSettings();
+        return "<div>Not found</div>";
+      }
+
+      // DASHBOARD
+      function renderDashboard() {
+        const vp = visibleProjects();
+        const uid = String(S.currentUser.id);
+        const myTasks = S.tasks.filter(
+          (t) => String(t.assignee) === uid || String(t.createdBy) === uid,
+        );
+        const overdue = myTasks.filter(
+          (t) => t.due && new Date(t.due) < new Date() && t.status !== "done",
+        );
+        const inProg = myTasks.filter((t) => t.status === "in-progress");
+        const done = myTasks.filter((t) => t.status === "done");
+        return `
+  <div class="stats-grid">
+    <div class="stat-card c-indigo"><div class="stat-label">Projects</div><div class="stat-value" style="color:var(--indigo)">${vp.length}</div></div>
+    <div class="stat-card c-cyan"><div class="stat-label">My Tasks</div><div class="stat-value" style="color:var(--cyan)">${myTasks.length}</div></div>
+    <div class="stat-card c-amber"><div class="stat-label">In Progress</div><div class="stat-value" style="color:var(--amber)">${inProg.length}</div></div>
+    <div class="stat-card c-green"><div class="stat-label">Completed</div><div class="stat-value" style="color:var(--green)">${done.length}</div></div>
+    <div class="stat-card c-red"><div class="stat-label">Overdue</div><div class="stat-value" style="color:var(--red)">${overdue.length}</div></div>
+  </div>
+  ${
+    overdue.length
+      ? `
+  <div style="background:var(--red-bg);border:1px solid #f43f5e33;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem">
+    <div style="font-weight:700;color:var(--red);margin-bottom:.75rem;font-size:13px">⚠ Overdue Tasks (${overdue.length})</div>
+    ${overdue
+      .map(
+        (
+          t,
+        ) => `<div style="display:flex;align-items:center;justify-content:space-between;padding:.4rem 0;border-top:1px solid #f43f5e22;font-size:13px">
+      <span>${t.title}</span><span style="color:var(--text3);font-size:11px">${t.due}</span></div>`,
+      )
+      .join("")}
+  </div>`
+      : ""
+  }
+  <div class="section-header"><div class="section-title">Active Projects</div></div>
+  ${
+    vp.length === 0
+      ? '<div class="empty-state"><h3>No projects yet</h3><p>Projects assigned to you will appear here.</p></div>'
+      : `<div class="projects-grid">${vp
+          .slice(0, 4)
+          .map((p) => renderProjectCard(p))
+          .join("")}</div>`
+  }`;
+      }
+
+      // PROJECTS
+      function renderProjects() {
+        const vp = visibleProjects();
+        return vp.length === 0
+          ? `<div class="empty-state"><h3>No projects</h3><p>${isAdmin() ? "Create your first project." : "No projects assigned to you yet."}</p></div>`
+          : `<div class="projects-grid">${vp.map((p) => renderProjectCard(p)).join("")}</div>`;
+      }
+
+      function renderProjectCard(p) {
+        const pct = projProgress(p.id);
+        const tot = tasksTotal(p.id);
+        const done = tasksDone(p.id);
+        const ptasks = S.tasks.filter((t) => t.projectId === p.id);
+        const avgProg = ptasks.length
+          ? Math.round(
+              ptasks.reduce((s, t) => s + (t.progress || 0), 0) / ptasks.length,
+            )
+          : 0;
+        return `
+  <div class="project-card" onclick="openProject('${p.id}')" style="border-left:3px solid var(--indigo)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:14px;margin-bottom:.2rem">${p.name}</div>
+        <div style="color:var(--text2);font-size:12px;margin-bottom:.65rem">${p.desc || "No description"}</div>
+      </div>
+      ${
+        isAdmin()
+          ? `<button onclick="event.stopPropagation();deleteProject('${p.id}')" class="btn-icon" style="flex-shrink:0;margin-left:8px">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="var(--red)"><path d="M2 4h12M5 4V2h6v2M6 7v5M10 7v5M3 4l1 10h8l1-10"/></svg>
+      </button>`
+          : ""
+      }
+    </div>
+    <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:.65rem">
+      ${p.members
+        .slice(0, 4)
+        .map((id) => {
+          const u = S.users.find((x) => x.id === id);
+          if (!u) return "";
+          return `<div class="avatar" title="${u.name}" style="background:${u.color}22;color:${u.color};width:24px;height:24px;font-size:9px;border:1px solid ${u.color}33">${initials(u.name)}</div>`;
+        })
+        .join("")}
+      ${p.members.length > 4 ? `<span style="font-size:11px;color:var(--text3)">+${p.members.length - 4}</span>` : ""}
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:${ptasks.length ? ".5rem" : "0"}">
+      <span class="progress-text">${pct}% tasks done</span>
+      <span style="font-size:11px;color:var(--text3)">${done}/${tot}</span>
+    </div>
+    ${
+      ptasks.length
+        ? `
+    <div style="padding:.5rem .65rem;background:var(--bg3);border-radius:7px;border:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+        <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px">Avg Progress</span>
+        <span style="font-size:11px;font-weight:700;color:${progressColor(avgProg)}">${avgProg}%</span>
+      </div>
+      <div style="height:3px;background:var(--bg4);border-radius:2px;overflow:hidden">
+        <div style="height:100%;width:${avgProg}%;background:${progressColor(avgProg)};border-radius:2px;transition:width .4s"></div>
+      </div>
+    </div>`
+        : ""
+    }
+  </div>`;
+      }
+
+      // PROJECT DETAIL
+      function renderProjectDetail() {
+        const p = S.projects.find((x) => x.id === S.subView);
+        if (!p)
+          return '<div class="empty-state"><h3>Project not found</h3></div>';
+
+        const ptasks = S.tasks.filter((t) => t.projectId === p.id);
+        const todo = ptasks.filter((t) => t.status === "todo");
+        const prog = ptasks.filter((t) => t.status === "in-progress");
+        const done = ptasks.filter((t) => t.status === "done");
+        const pct = projProgress(p.id);
+        const avgProg = ptasks.length
+          ? Math.round(
+              ptasks.reduce((s, t) => s + (t.progress || 0), 0) / ptasks.length,
+            )
+          : 0;
+        const isMember =
+          p.members.map(String).includes(String(S.currentUser.id)) || isAdmin();
+
+        const statusOpts = (
+          cur,
+          tid,
+        ) => `<select onchange="updateTaskStatus('${tid}',this.value)" style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;color:var(--text);font-size:11px" ${!canEditTask(ptasks.find((t) => t.id === tid)) ? "disabled" : ""}>
+    <option value="todo" ${cur === "todo" ? "selected" : ""}>To Do</option>
+    <option value="in-progress" ${cur === "in-progress" ? "selected" : ""}>In Progress</option>
+    <option value="done" ${cur === "done" ? "selected" : ""}>Done</option>
+  </select>`;
+
+        const taskCard = (t) => {
+          const au = S.users.find((u) => u.id === t.assignee);
+          const ov =
+            t.due && new Date(t.due) < new Date() && t.status !== "done";
+          const pv = t.progress || 0;
+          const canEdit = canEditTask(t);
+          return `<div class="task-mini">
+      <div class="task-mini-title">${t.title}</div>
+      <div class="task-mini-meta">
+        <span class="tag badge-${t.priority}" style="font-size:10px">${t.priority}</span>
+        ${au ? `<div class="avatar" title="${au.name}" style="width:18px;height:18px;font-size:8px;background:${au.color}22;color:${au.color}">${initials(au.name)}</div>` : ""}
+        ${t.due ? `<span style="font-size:10px;color:${ov ? "var(--red)" : "var(--text3)"}">${t.due}</span>` : ""}
+      </div>
+      <div style="margin:.5rem 0 .3rem">
+        <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+          <span style="font-size:10px;color:var(--text3)">Progress</span>
+          <span id="pct-label-${t.id}" style="font-size:11px;font-weight:700;color:${progressColor(pv)}">${pv}%</span>
+        </div>
+        <div style="position:relative;height:3px;background:var(--bg4);border-radius:2px;margin-bottom:${canEdit ? "6px" : "0"}">
+          <div id="pct-bar-${t.id}" style="position:absolute;top:0;left:0;height:100%;width:${pv}%;background:${progressColor(pv)};border-radius:2px;transition:width .3s"></div>
+        </div>
+        ${canEdit ? `<input type="range" min="0" max="100" step="5" value="${pv}" class="progress-slider" oninput="updateTaskProgress('${t.id}',this.value)" style="width:100%">` : ""}
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+        ${statusOpts(t.status, t.id)}
+        ${
+          canEdit
+            ? `<button class="btn-icon" style="padding:3px" onclick="openModal('edit-task',${JSON.stringify({ id: t.id }).replace(/"/g, "&quot;")})">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-9 9H2v-3z"/></svg>
+        </button>`
+            : ""
+        }
+        ${
+          isAdmin()
+            ? `<button class="btn-icon" style="padding:3px" onclick="deleteTask('${t.id}')">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="var(--red)"><path d="M2 4h12M5 4V2h6v2M6 7v5M10 7v5M3 4l1 10h8l1-10"/></svg>
+        </button>`
+            : ""
+        }
+      </div>
+    </div>`;
+        };
+
+        return `
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h2 style="font-size:18px;font-weight:800;letter-spacing:-.4px">${p.name}</h2>
+        <p style="color:var(--text2);font-size:13px;margin-top:.25rem">${p.desc || "No description"}</p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:30px;font-weight:800;color:${pct === 100 ? "var(--green)" : "var(--indigo)"}">${pct}%</div>
+        <div style="font-size:11px;color:var(--text3)">${tasksDone(p.id)}/${tasksTotal(p.id)} tasks done</div>
+        <div style="font-size:11px;font-weight:700;color:${progressColor(avgProg)};margin-top:2px">Avg progress: ${avgProg}%</div>
+      </div>
+    </div>
+    <div class="progress-bar" style="height:7px;margin-top:1rem"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div style="margin-top:1rem">
+      <div style="font-size:10px;color:var(--text3);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.5px;font-weight:700">Members</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        ${p.members
+          .map((id) => {
+            const u = S.users.find((x) => x.id === id);
+            if (!u) return "";
+            return `<div style="display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:4px 10px 4px 5px">
+            <div class="avatar" style="width:22px;height:22px;font-size:9px;background:${u.color}22;color:${u.color}">${initials(u.name)}</div>
+            <span style="font-size:12px">${u.name}</span>
+            <span class="badge ${u.role === "admin" ? "badge-admin" : "badge-member"}" style="font-size:9px;padding:1px 6px">${u.role}</span>
+          </div>`;
+          })
+          .join("")}
+      </div>
+    </div>
+  </div>
+  <div class="kanban">
+    ${[
+      ["todo", "To Do", todo, "var(--text3)"],
+      ["in-progress", "In Progress", prog, "var(--amber)"],
+      ["done", "Done", done, "var(--green)"],
+    ]
+      .map(
+        ([s, label, list, col]) => `
+    <div class="kanban-col">
+      <div class="kanban-col-header" style="color:${col}">${label} <span class="kanban-count">${list.length}</span></div>
+      ${list.length === 0 ? `<div style="text-align:center;padding:2rem 0;color:var(--text3);font-size:12px">Empty</div>` : ""}
+      ${list.map((t) => taskCard(t)).join("")}
+    </div>`,
+      )
+      .join("")}
+  </div>
+  ${!isMember ? `<div style="background:var(--amber-bg);border:1px solid #f59e0b33;border-radius:9px;padding:.75rem 1rem;font-size:13px;color:var(--amber)">You are not a member of this project — view only.</div>` : ""}`;
+      }
+
+      // MY TASKS
+      function renderMyTasks() {
+        const uid = String(S.currentUser.id);
+        const myTasks = S.tasks.filter(
+          (t) => String(t.assignee) === uid || String(t.createdBy) === uid,
+        );
+        if (!myTasks.length)
+          return `<div class="empty-state"><h3>No tasks yet</h3><p>Tasks assigned to you will appear here.</p></div>`;
+
+        return `
+  <div style="margin-bottom:1.25rem;font-size:13px;color:var(--text2)">${myTasks.length} task${myTasks.length !== 1 ? "s" : ""}</div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    ${myTasks
+      .map((t) => {
+        const proj = S.projects.find((p) => p.id === t.projectId);
+        const au = S.users.find((u) => u.id === t.assignee);
+        const ov = t.due && new Date(t.due) < new Date() && t.status !== "done";
+        const pv = t.progress || 0;
+        const canEdit = canEditTask(t);
+        const canProgress = String(t.assignee) === uid || isAdmin();
+        return `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.75rem">
+          <div style="flex:1">
+            <div style="font-weight:700;font-size:14px;margin-bottom:4px">${t.title}</div>
+            ${t.desc ? `<div style="font-size:12px;color:var(--text3);margin-bottom:5px">${t.desc.slice(0, 80)}${t.desc.length > 80 ? "..." : ""}</div>` : ""}
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <span class="badge badge-${t.priority}">${t.priority}</span>
+              ${proj ? `<a onclick="openProject('${t.projectId}')" style="color:var(--indigo);cursor:pointer;font-size:12px">${proj.name}</a>` : ""}
+              ${t.due ? `<span style="font-size:11px;color:${ov ? "var(--red)" : "var(--text2)"}">${ov ? "⚠ " : ""}Due ${t.due}</span>` : ""}
+              ${au && String(t.assignee) !== uid ? `<span style="font-size:11px;color:var(--text3)">→ ${au.name}</span>` : ""}
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;flex-shrink:0">
+            <select onchange="updateTaskStatus('${t.id}',this.value)" style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 8px;color:var(--text);font-size:11px">
+              <option value="todo" ${t.status === "todo" ? "selected" : ""}>To Do</option>
+              <option value="in-progress" ${t.status === "in-progress" ? "selected" : ""}>In Progress</option>
+              <option value="done" ${t.status === "done" ? "selected" : ""}>Done</option>
+            </select>
+            ${canEdit ? `<button class="btn btn-ghost btn-sm" onclick="openModal('edit-task',{id:'${t.id}'})">Edit</button>` : ""}
+          </div>
+        </div>
+        <div style="background:var(--bg3);border-radius:8px;padding:.65rem .85rem;border:1px solid var(--border)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px">Task Progress</span>
+            <strong id="pct-label-${t.id}" style="font-size:13px;color:${progressColor(pv)}">${pv}%</strong>
+          </div>
+          <div style="position:relative;height:5px;background:var(--bg4);border-radius:3px;margin-bottom:${canProgress ? "8px" : "0"}">
+            <div id="pct-bar-${t.id}" style="position:absolute;top:0;left:0;height:100%;width:${pv}%;background:${progressColor(pv)};border-radius:3px;transition:width .3s"></div>
+          </div>
+          ${
+            canProgress
+              ? `<input type="range" min="0" max="100" step="5" value="${pv}" class="progress-slider" oninput="updateTaskProgress('${t.id}',this.value)" style="width:100%">
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-top:2px"><span>0%</span><span>50%</span><span>100%</span></div>`
+              : `<div style="font-size:11px;color:var(--text3);text-align:center;padding-top:2px">Set by assignee</div>`
+          }
+        </div>
+      </div>`;
+      })
+      .join("")}
+  </div>`;
+      }
+
+      // TEAM
+      function renderTeam() {
+        return `
+  <div class="scroll-x">
+  <table class="team-table">
+    <thead><tr><th>Member</th><th>Email</th><th>Role</th><th>Projects</th><th>Tasks</th><th>Avg Progress</th><th>Actions</th></tr></thead>
+    <tbody>
+      ${S.users
+        .map((u) => {
+          const isSelf = String(u.id) === String(S.currentUser.id);
+          const uProj = S.projects.filter((p) =>
+            p.members.map(String).includes(String(u.id)),
+          ).length;
+          const uT = S.tasks.filter((t) => String(t.assignee) === String(u.id));
+          const avg = uT.length
+            ? Math.round(
+                uT.reduce((s, t) => s + (t.progress || 0), 0) / uT.length,
+              )
+            : 0;
+          return `<tr>
+          <td><div style="display:flex;align-items:center;gap:8px">
+            <div class="avatar" style="background:${u.color}22;color:${u.color};border:1px solid ${u.color}33">${initials(u.name)}</div>
+            <div style="font-weight:600">${u.name}${isSelf ? ' <span style="font-size:10px;color:var(--text3)">(you)</span>' : ""}</div>
+          </div></td>
+          <td style="color:var(--text2);font-size:12px">${u.email}</td>
+          <td><span class="badge ${u.role === "admin" ? "badge-admin" : "badge-member"}">${u.role}</span></td>
+          <td style="color:var(--text2)">${uProj}</td>
+          <td style="color:var(--text2)">${uT.length}</td>
+          <td>${
+            uT.length
+              ? `<div style="display:flex;align-items:center;gap:8px">
+            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:${avg}%;background:${progressColor(avg)}"></div></div>
+            <span style="font-size:12px;font-weight:700;color:${progressColor(avg)}">${avg}%</span>
+          </div>`
+              : `<span style="color:var(--text3);font-size:12px">—</span>`
+          }</td>
+          <td><div style="display:flex;gap:6px">
+            ${
+              !isSelf
+                ? `
+              <button class="btn btn-ghost btn-sm" onclick="changeRole('${u.id}')">${u.role === "admin" ? "→ Member" : "→ Admin"}</button>
+              <button class="btn btn-danger btn-sm" onclick="removeUser('${u.id}')">Remove</button>
+            `
+                : '<span style="font-size:11px;color:var(--text3)">—</span>'
+            }
+          </div></td>
+        </tr>`;
+        })
+        .join("")}
+    </tbody>
+  </table>
+  </div>`;
+      }
+
+      // SETTINGS
+      function renderSettings() {
+        const u = S.currentUser;
+        return `
+  <div style="max-width:620px">
+    <div class="settings-section">
+      <h3>Profile</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Full Name</label><input id="prof-name" value="${u.name}"/></div>
+        <div class="form-group"><label>Email</label><input id="prof-email" type="email" value="${u.email}"/></div>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="saveProfile()">Save Profile</button>
+    </div>
+    <div class="settings-section">
+      <h3>Change Password</h3>
+      <div class="form-group"><label>Current Password</label><input id="pw-current" type="password" placeholder="Your current password"/></div>
+      <div class="form-row">
+        <div class="form-group"><label>New Password</label><input id="pw-new" type="password" placeholder="Capital + number + special"/></div>
+        <div class="form-group"><label>Confirm</label><input id="pw-confirm" type="password" placeholder="Repeat new password"/></div>
+      </div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:.75rem">Rules: Capital first, number + special char (!@#$%^&*), min 8 chars.</div>
+      <button class="btn btn-primary btn-sm" onclick="savePassword()">Update Password</button>
+    </div>
+    <div class="settings-section">
+      <h3>Account Info</h3>
+      <div style="display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;background:var(--bg3);border-radius:10px;border:1px solid var(--border)">
+        <div class="avatar" style="background:${u.color}22;color:${u.color};width:44px;height:44px;font-size:16px;border:2px solid ${u.color}44">${initials(u.name)}</div>
+        <div>
+          <div style="font-weight:700;font-size:15px">${u.name}</div>
+          <div style="font-size:12px;color:var(--text2)">${u.email}</div>
+          <span class="badge ${u.role === "admin" ? "badge-admin" : "badge-member"}" style="margin-top:5px">${u.role}</span>
+        </div>
+      </div>
+    </div>
+    ${
+      isAdmin()
+        ? `
+    <div class="settings-section danger-zone">
+      <h3>Admin Controls</h3>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:1rem">Destructive actions — use with caution.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" onclick="goView('team')">Manage Team</button>
+        <button class="btn btn-ghost btn-sm" onclick="goView('projects')">Manage Projects</button>
+        <button class="btn btn-danger btn-sm" onclick="if(confirm('Clear ALL tasks? This cannot be undone.')){S.tasks=[];save();render();alert2('All tasks cleared','green')}">Clear All Tasks</button>
+      </div>
+    </div>`
+        : ""
+    }
+  </div>`;
+      }
+
+      // MODALS
+      function renderModal() {
+        const m = S.modal,
+          d = S.modalData;
+
+        if (m === "new-project" || m === "edit-project") {
+          const p =
+            m === "edit-project" ? S.projects.find((x) => x.id === d.id) : null;
+          const exclude = S.pendingMembers.concat(String(S.currentUser.id));
+          const avail = S.users.filter((u) => !exclude.includes(String(u.id)));
+          return `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">${m === "edit-project" ? "Edit Project" : "New Project"}</div>
+          <button class="btn-icon" onclick="closeModal()">✕</button>
+        </div>
+        <div class="form-group"><label>Project Title</label><input id="p-title" placeholder="e.g. Mobile App Redesign" value="${p?.name || ""}"/></div>
+        <div class="form-group"><label>Description</label><textarea id="p-desc" rows="2" placeholder="What is this project about?">${p?.desc || ""}</textarea></div>
+        <div class="form-group">
+          <label>Add Members</label>
+          <div class="input-with-btn">
+            <select id="pm-select" style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 10px;color:var(--text);font-size:13px;flex:1">
+              <option value="">Select a member...</option>
+              ${avail.map((u) => `<option value="${u.id}">${u.name} (${u.role})</option>`).join("")}
+            </select>
+            <button class="btn btn-ghost" onclick="addPendingMember()">Add</button>
+          </div>
+          <div class="member-pills" id="pm-pills" style="margin-top:.6rem">${pillsHTML()}</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:.4rem">You (${S.currentUser.name}) are auto-added as owner.</div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:.5rem">
+          <button class="btn btn-primary" style="flex:1" onclick="saveProject()">${m === "edit-project" ? "Save Changes" : "Create Project"}</button>
+          <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>`;
+        }
+
+        if (m === "new-task" || m === "edit-task") {
+          const t =
+            m === "edit-task" ? S.tasks.find((x) => x.id === d.id) : null;
+          const defPid = d.projectId || t?.projectId || "";
+          const projsAvail = isAdmin()
+            ? S.projects
+            : S.projects.filter((p) =>
+                p.members.map(String).includes(String(S.currentUser.id)),
+              );
+          const selProj = S.projects.find((p) => p.id === defPid);
+          const projMembers = selProj
+            ? selProj.members
+                .map((id) => S.users.find((u) => u.id === id))
+                .filter(Boolean)
+            : S.users;
+          return `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">${m === "edit-task" ? "Edit Task" : "New Task"}</div>
+          <button class="btn-icon" onclick="closeModal()">✕</button>
+        </div>
+        <div class="form-group"><label>Task Title</label><input id="t-title" placeholder="e.g. Build login page" value="${t?.title || ""}"/></div>
+        <div class="form-group"><label>Description</label><textarea id="t-desc" rows="2" placeholder="What needs to be done?">${t?.desc || ""}</textarea></div>
+        <div class="form-group"><label>Project</label>
+          <select id="t-project" ${m === "edit-task" ? "disabled" : ""}>
+            <option value="">Select project...</option>
+            ${projsAvail.map((p) => `<option value="${p.id}" ${p.id === defPid ? "selected" : ""}>${p.name}</option>`).join("")}
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Assign To</label>
+            <select id="t-assignee">
+              <option value="">Unassigned</option>
+              ${projMembers.map((u) => `<option value="${u.id}" ${String(t?.assignee) === String(u.id) ? "selected" : ""}>${u.name}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group"><label>Priority</label>
+            <select id="t-priority">
+              <option value="high" ${t?.priority === "high" ? "selected" : ""}>High</option>
+              <option value="medium" ${!t || t.priority === "medium" ? "selected" : ""}>Medium</option>
+              <option value="low" ${t?.priority === "low" ? "selected" : ""}>Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Due Date</label><input id="t-due" type="date" value="${t?.due || ""}"/></div>
+        <div style="display:flex;gap:8px;margin-top:.5rem">
+          <button class="btn btn-primary" style="flex:1" onclick="saveTask()">${m === "edit-task" ? "Save Changes" : "Create Task"}</button>
+          <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>`;
+        }
+        return "";
+      }
+
+      // NAVIGATION & ALERT
+      window.goView = (v) => {
+        S.view = v;
+        S.subView = null;
+        render();
+      };
+      window.openProject = (id) => {
+        S.view = "project-detail";
+        S.subView = id;
+        render();
+      };
+
+      function alert2(msg, color) {
+        document.querySelectorAll(".alert").forEach((e) => e.remove());
+        const d = document.createElement("div");
+        d.className = "alert";
+        d.style.cssText = `background:${color === "green" ? "var(--green-bg)" : "var(--red-bg)"};color:${color === "green" ? "var(--green)" : "var(--red)"};border:1px solid ${color === "green" ? "#10b98144" : "#f43f5e44"}`;
+        d.innerText = msg;
+        document.body.appendChild(d);
+        setTimeout(() => d.remove(), 4000);
+      }
+
+      Object.assign(window, {
+        handleAuth,
+        logout,
+        render,
+        startForgot,
+        sendResetCode,
+        verifyCode,
+        submitReset,
+        codeInputNav,
+        setView: (v) => goView(v),
+        openModal,
+        closeModal,
+        saveProject,
+        deleteProject,
+        saveTask,
+        deleteTask,
+        updateTaskStatus,
+        updateTaskProgress,
+        removeUser,
+        changeRole,
+        savePassword,
+        saveProfile,
+        addPendingMember,
+        removePendingMember,
+        openProject,
+        goView,
+        canCreateTaskInProject,
+      });
+
+      render();
+    </script>
+  </body>
+</html>
