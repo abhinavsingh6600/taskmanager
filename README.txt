@@ -63,7 +63,7 @@ Core design principles:
   2. LIVE DEMO & DEPLOYMENT
 =============================================================================
 
-  Live URL   : https://remarkable-syrniki-bfecb6.netlify.app
+
   Platform   : Netlify (Static Hosting)
   Deploy Type: Single HTML file (index.html)
 
