@@ -10,7 +10,7 @@
 =============================================================================
 
   Version     : 1.0.0
-  Author      : Farhan Khalid
+  Author      : Abhinav Singh 
   Live URL    : https://remarkable-syrniki-bfecb6.netlify.app
   Tech Stack  : HTML5, CSS3, Vanilla JavaScript, Web Storage API
   Type        : Single Page Application (SPA) - No backend required
@@ -63,7 +63,7 @@ Core design principles:
   2. LIVE DEMO & DEPLOYMENT
 =============================================================================
 
-  Live URL   : https://remarkable-syrniki-bfecb6.netlify.app
+
   Platform   : Netlify (Static Hosting)
   Deploy Type: Single HTML file (index.html)
 
